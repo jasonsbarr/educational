@@ -10,6 +10,9 @@
     "string",
     "boolean"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Jason Barr <jason@jasonsbarr.com>",
   "homepage": "https://github.com/jasonsbarr/educational#readme",
   "license": "MIT",
@@ -24,5 +27,6 @@
   },
   "bugs": {
     "url": "https://github.com/jasonsbarr/educational/issues"
-  }
+  },
+  "gitHead": "0999a7e5bf9bc4c80a49c685b74be7c4e9e74aa3"
 }
