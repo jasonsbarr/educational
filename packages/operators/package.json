@@ -1,6 +1,6 @@
 {
   "name": "@jasonsbarr/operators",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Functions that wrap JavaScript binary expressions",
   "keywords": [
     "educational",
