@@ -1,8 +1,10 @@
 {
-  "name": "root",
-  "private": true,
+  "name": "@jasonsbarr/educational",
   "devDependencies": {
     "lerna": "^4.0.0",
     "prettier": "^2.5.0"
+  },
+  "scripts": {
+    "format": "prettier --write ./packages"
   }
 }
