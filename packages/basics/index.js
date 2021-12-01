@@ -1,4 +1,5 @@
 import { append } from "./lib/append.js";
+import { call } from "./lib/call.js";
 import { compose } from "./lib/compose.js";
 import { concat } from "./lib/concat.js";
 import { each } from "./lib/each.js";
@@ -22,6 +23,7 @@ import { tail } from "./lib/tail.js";
 
 export {
   append,
+  call,
   compose,
   concat,
   each,
