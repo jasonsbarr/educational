@@ -1,4 +1,5 @@
 import { append } from "./lib/append.js";
+import { compose } from "./lib/compose.js";
 import { concat } from "./lib/concat.js";
 import { each } from "./lib/each.js";
 import { filter } from "./lib/filter.js";
@@ -16,10 +17,12 @@ import { prepend } from "./lib/prepend.js";
 import { prop } from "./lib/prop.js";
 import { reduce } from "./lib/reduce.js";
 import { snd } from "./lib/snd.js";
+import { sort } from "./lib/sort.js";
 import { tail } from "./lib/tail.js";
 
 export {
   append,
+  compose,
   concat,
   each,
   filter,
@@ -37,5 +40,6 @@ export {
   prop,
   reduce,
   snd,
+  sort,
   tail,
 };
