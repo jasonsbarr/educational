@@ -1,0 +1,1 @@
+export const jsonify = obj => JSON.stringify(obj);

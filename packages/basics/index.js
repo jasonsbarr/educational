@@ -12,6 +12,7 @@ import { find } from "./lib/find.js";
 import { head } from "./lib/head.js";
 import { ignore } from "./lib/ignore.js";
 import { last } from "./lib/last.js";
+import { jsonify } from "./lib/jsonify.js";
 import { list } from "./lib/list.js";
 import { loop } from "./lib/loop.js";
 import { loopSync } from "./lib/loopSync.js";
@@ -22,6 +23,7 @@ import { max } from "./lib/max.js";
 import { min } from "./lib/min.js";
 import { object } from "./lib/object.js";
 import { pair } from "./lib/pair.js";
+import { parse } from "./lib/parse.js";
 import { prepend } from "./lib/prepend.js";
 import { prop } from "./lib/prop.js";
 import { reduce } from "./lib/reduce.js";
@@ -46,6 +48,7 @@ export {
   head,
   ignore,
   last,
+  jsonify,
   list,
   loop,
   loopSync,
@@ -56,6 +59,7 @@ export {
   min,
   object,
   pair,
+  parse,
   prepend,
   prop,
   reduce,
