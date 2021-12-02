@@ -17,6 +17,7 @@ import { pair } from "./lib/pair.js";
 import { prepend } from "./lib/prepend.js";
 import { prop } from "./lib/prop.js";
 import { reduce } from "./lib/reduce.js";
+import { sleep } from "./lib/sleep.js";
 import { snd } from "./lib/snd.js";
 import { sort } from "./lib/sort.js";
 import { tail } from "./lib/tail.js";
@@ -41,6 +42,7 @@ export {
   prepend,
   prop,
   reduce,
+  sleep,
   snd,
   sort,
   tail,
