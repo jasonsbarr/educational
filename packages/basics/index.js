@@ -10,6 +10,7 @@ import { head } from "./lib/head.js";
 import { ignore } from "./lib/ignore.js";
 import { last } from "./lib/last.js";
 import { list } from "./lib/list.js";
+import { loop } from "./lib/loop.js";
 import { map } from "./lib/map.js";
 import { max } from "./lib/max.js";
 import { min } from "./lib/min.js";
@@ -36,6 +37,7 @@ export {
   ignore,
   last,
   list,
+  loop,
   max,
   map,
   min,
