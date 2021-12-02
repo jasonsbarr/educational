@@ -1,3 +1,4 @@
+import { appendFile } from "./lib/appendFile.js";
 import { appendFileSync } from "./lib/appendFileSync.js";
 import { deleteRequest } from "./lib/deleteRequest.js";
 import { dirname } from "./lib/dirname.js";
@@ -23,6 +24,7 @@ import { writeFileSync } from "./lib/writeFileSync.js";
 import { writeLinesSync } from "./lib/writeLinesSync.js";
 
 export {
+  appendFile,
   appendFileSync,
   deleteRequest,
   dirname,
