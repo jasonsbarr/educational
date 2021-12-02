@@ -7,6 +7,7 @@ import { concat } from "./lib/concat.js";
 import { defer } from "./lib/defer.js";
 import { each } from "./lib/each.js";
 import { equals } from "./lib/equals.js";
+import { fail } from "./lib/fail.js";
 import { filter } from "./lib/filter.js";
 import { find } from "./lib/find.js";
 import { head } from "./lib/head.js";
@@ -45,6 +46,7 @@ export {
   defer,
   each,
   equals,
+  fail,
   filter,
   find,
   head,
