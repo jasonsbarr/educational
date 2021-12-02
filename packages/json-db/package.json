@@ -26,6 +26,7 @@
     "url": "https://github.com/jasonsbarr/educational/issues"
   },
   "dependencies": {
+    "@jasonsbarr/basics": "^0.1.5",
     "@jasonsbarr/io": "^0.1.5"
   }
 }
