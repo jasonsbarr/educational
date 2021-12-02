@@ -4,5 +4,5 @@ export const sleep = (delay) => {
   const now = Date.now();
   do {
     current = Date.now();
-  } while (current - date < delay * 1000);
+  } while (current - now < delay * 1000);
 };
