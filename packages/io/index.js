@@ -16,6 +16,7 @@ import { post } from "./lib/post.js";
 import { print } from "./lib/print.js";
 import { println } from "./lib/println.js";
 import { put } from "./lib/put.js";
+import { readFile } from "./lib/readFile.js";
 import { readFileSync } from "./lib/readFileSync.js";
 import { readLinesSync } from "./lib/readLinesSync.js";
 import { request } from "./lib/request.js";
@@ -42,6 +43,7 @@ export {
   print,
   println,
   put,
+  readFile,
   readFileSync,
   readLinesSync,
   request,
