@@ -5,6 +5,7 @@ import { call } from "./lib/call.js";
 import { compose } from "./lib/compose.js";
 import { concat } from "./lib/concat.js";
 import { defer } from "./lib/defer.js";
+import { dict } from "./lib/dict.js";
 import { each } from "./lib/each.js";
 import { equals } from "./lib/equals.js";
 import { fail } from "./lib/fail.js";
@@ -22,7 +23,6 @@ import { map } from "./lib/map.js";
 import { mapFromObject } from "./lib/mapFromObject.js";
 import { max } from "./lib/max.js";
 import { min } from "./lib/min.js";
-import { object } from "./lib/object.js";
 import { pair } from "./lib/pair.js";
 import { parse } from "./lib/parse.js";
 import { prepend } from "./lib/prepend.js";
@@ -44,6 +44,7 @@ export {
   compose,
   concat,
   defer,
+  dict,
   each,
   equals,
   fail,
