@@ -1,9 +1,11 @@
 import { append } from "./lib/append.js";
+import { assert } from "./lib/assert.js";
 import { call } from "./lib/call.js";
 import { compose } from "./lib/compose.js";
 import { concat } from "./lib/concat.js";
 import { defer } from "./lib/defer.js";
 import { each } from "./lib/each.js";
+import { equals } from "./lib/equals.js";
 import { filter } from "./lib/filter.js";
 import { find } from "./lib/find.js";
 import { head } from "./lib/head.js";
@@ -27,11 +29,13 @@ import { tail } from "./lib/tail.js";
 
 export {
   append,
+  assert,
   call,
   compose,
   concat,
   defer,
   each,
+  equals,
   filter,
   find,
   head,
