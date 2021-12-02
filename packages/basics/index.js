@@ -1,4 +1,5 @@
 import { append } from "./lib/append.js";
+import { array } from "./lib/array.js";
 import { assert } from "./lib/assert.js";
 import { call } from "./lib/call.js";
 import { compose } from "./lib/compose.js";
@@ -14,6 +15,7 @@ import { last } from "./lib/last.js";
 import { list } from "./lib/list.js";
 import { loop } from "./lib/loop.js";
 import { loopSync } from "./lib/loopSync.js";
+import { makeMap } from "./lib/makeMap.js";
 import { map } from "./lib/map.js";
 import { max } from "./lib/max.js";
 import { min } from "./lib/min.js";
@@ -22,6 +24,7 @@ import { pair } from "./lib/pair.js";
 import { prepend } from "./lib/prepend.js";
 import { prop } from "./lib/prop.js";
 import { reduce } from "./lib/reduce.js";
+import { set } from "./lib/set.js";
 import { sleep } from "./lib/sleep.js";
 import { snd } from "./lib/snd.js";
 import { sort } from "./lib/sort.js";
@@ -29,6 +32,7 @@ import { tail } from "./lib/tail.js";
 
 export {
   append,
+  array,
   assert,
   call,
   compose,
@@ -45,6 +49,7 @@ export {
   loop,
   loopSync,
   max,
+  makeMap,
   map,
   min,
   object,
@@ -52,6 +57,7 @@ export {
   prepend,
   prop,
   reduce,
+  set,
   sleep,
   snd,
   sort,
