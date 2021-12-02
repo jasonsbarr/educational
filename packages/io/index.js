@@ -20,6 +20,7 @@ import { readLinesSync } from "./lib/readLinesSync.js";
 import { request } from "./lib/request.js";
 import { stringify } from "./lib/stringify.js";
 import { writeFileSync } from "./lib/writeFileSync.js";
+import { writeLinesSync } from "./lib/writeLinesSync.js";
 
 export {
   appendFileSync,
@@ -44,4 +45,5 @@ export {
   request,
   stringify,
   writeFileSync,
+  writeLinesSync,
 };
