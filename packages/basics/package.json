@@ -24,5 +24,8 @@
   },
   "bugs": {
     "url": "https://github.com/jasonsbarr/educational/issues"
+  },
+  "dependencies": {
+    "axios": "^0.24.0"
   }
 }
