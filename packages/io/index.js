@@ -18,11 +18,13 @@ import { println } from "./lib/println.js";
 import { put } from "./lib/put.js";
 import { readFile } from "./lib/readFile.js";
 import { readFileSync } from "./lib/readFileSync.js";
+import { readLines } from "./lib/readLines.js";
 import { readLinesSync } from "./lib/readLinesSync.js";
 import { request } from "./lib/request.js";
 import { stringify } from "./lib/stringify.js";
 import { writeFile } from "./lib/writeFile.js";
 import { writeFileSync } from "./lib/writeFileSync.js";
+import { writeLines } from "./lib/writeLines.js";
 import { writeLinesSync } from "./lib/writeLinesSync.js";
 
 export {
@@ -46,10 +48,12 @@ export {
   put,
   readFile,
   readFileSync,
+  readLines,
   readLinesSync,
   request,
   stringify,
   writeFile,
   writeFileSync,
+  writeLines,
   writeLinesSync,
 };
