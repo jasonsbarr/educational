@@ -17,6 +17,7 @@ import { loop } from "./lib/loop.js";
 import { loopSync } from "./lib/loopSync.js";
 import { makeMap } from "./lib/makeMap.js";
 import { map } from "./lib/map.js";
+import { mapFromObject } from "./lib/mapFromObject.js";
 import { max } from "./lib/max.js";
 import { min } from "./lib/min.js";
 import { object } from "./lib/object.js";
@@ -51,6 +52,7 @@ export {
   max,
   makeMap,
   map,
+  mapFromObject,
   min,
   object,
   pair,
