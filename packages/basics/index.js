@@ -11,6 +11,7 @@ import { ignore } from "./lib/ignore.js";
 import { last } from "./lib/last.js";
 import { list } from "./lib/list.js";
 import { loop } from "./lib/loop.js";
+import { loopSync } from "./lib/loopSync.js";
 import { map } from "./lib/map.js";
 import { max } from "./lib/max.js";
 import { min } from "./lib/min.js";
@@ -38,6 +39,7 @@ export {
   last,
   list,
   loop,
+  loopSync,
   max,
   map,
   min,
