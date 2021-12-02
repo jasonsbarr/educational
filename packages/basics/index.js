@@ -25,6 +25,8 @@ import { object } from "./lib/object.js";
 import { pair } from "./lib/pair.js";
 import { parse } from "./lib/parse.js";
 import { prepend } from "./lib/prepend.js";
+import { promise } from "./lib/promise.js";
+import { promisify } from "./lib/promisify.js";
 import { prop } from "./lib/prop.js";
 import { reduce } from "./lib/reduce.js";
 import { set } from "./lib/set.js";
@@ -61,6 +63,8 @@ export {
   pair,
   parse,
   prepend,
+  promise,
+  promisify,
   prop,
   reduce,
   set,
