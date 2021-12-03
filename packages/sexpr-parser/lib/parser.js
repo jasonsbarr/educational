@@ -184,6 +184,34 @@ const readForm = (reader) => {
   const token = reader.peek();
 
   switch (token) {
+    case ";":
+      return null; // ignore comments
+
+    case "'":
+      reader.next();
+      return [Symbol.for("quote"), readForm(reader)];
+
+    case "`":
+      reader.next();
+      return [Symbol.for("quasiquote"), readForm(reader)];
+
+    case "~":
+      reader.next();
+      return [Symbol.for("unquote"), readForm(reader)];
+
+    case "~@":
+      reader.next();
+      return [Symbol.for("splice-unquote"), readForm(reader)];
+
+    case "^":
+      reader.next();
+      const meta = readForm(reader);
+      return [Symbol.for("with-meta"), readForm(reader), meta];
+
+    case "@":
+      reader.next();
+      return [Symbol.for("deref"), readForm(reader)];
+
     case ")":
       throw new Error("Unexpected )");
 
