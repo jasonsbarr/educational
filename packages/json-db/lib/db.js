@@ -184,6 +184,18 @@ class DB {
     this.data = null;
     return data;
   }
+
+  into(table) {
+    const data = prop(table, this.db);
+
+    if (!data) {
+      throw new Error(`Property ${table} does not exist in JSON DB`);
+    }
+
+    this.query.table = table;
+
+    return this;
+  }
 }
 
 export const Db = (filePath, config) => new DB(filePath, config);
