@@ -155,7 +155,30 @@ const readAtom = (reader) => {
   return Symbol.for(token);
 };
 
-const readList = (reader, start = "(", end = ")") => {};
+const readList = (reader, start = "(", end = ")") => {
+  let ast = [];
+  let token = reader.next();
+
+  if (token !== start) {
+    throw new Error("Expected " + start);
+  }
+
+  token = reader.peek();
+
+  while (token !== end) {
+    if (!token) {
+      throw new Error("Expected " + end + ", got EOF");
+    }
+
+    ast.push(readForm(reader));
+    token = reader.peek();
+  }
+
+  // skip end token
+  reader.next();
+
+  return ast;
+};
 
 const readForm = (reader) => {
   const token = reader.peek();
