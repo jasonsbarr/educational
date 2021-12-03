@@ -1,9 +1,10 @@
 import uuid from "uuid";
-import { fail, parse, prepend, prop, last } from "@jasonsbarr/basics";
-import { readFileSync } from "@jasonsbarr/io";
+import { fail, jsonify, parse, prepend, prop, last } from "@jasonsbarr/basics";
+import { readFileSync, writeFileSync } from "@jasonsbarr/io";
 
 class DB {
   constructor(filePath, { entities = null } = {}) {
+    this.filePath = filePath;
     this.db = parse(readFileSync(filePath));
     this.entities = entities;
     this.query = {};
@@ -228,6 +229,12 @@ class DB {
     this.query.insertInto = this.query.insertInto.slice(0, -1);
     table.push({ id, ...data });
     this.db[toInsertInto] = table;
+
+    return this;
+  }
+
+  write() {
+    writeFileSync(this.filePath, jsonify(this.db));
 
     return this;
   }
