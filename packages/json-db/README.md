@@ -16,7 +16,9 @@ In file.json:
 {
     "users": [],
     "companies": [],
-    "user_company": []
+    "organizations": [],
+    "members": [],
+    "organization_member": []
 }
 ```
 
