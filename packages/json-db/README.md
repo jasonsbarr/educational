@@ -36,3 +36,12 @@ const rows = into("companies")
     .insert(newCompany2)
     .write();
 ```
+
+### Updating records
+
+```js
+const rows = from("companies")
+    .updateWhere("founded", "<", 1970)
+    .set({ old: true })
+    .write();
+```
