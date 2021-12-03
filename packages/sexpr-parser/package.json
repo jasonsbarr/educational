@@ -1,0 +1,29 @@
+{
+  "name": "@jasonsbarr/sexpr-parser",
+  "version": "0.1.5",
+  "description": "A simple parser for S-expressions that produces a minimal, array-based AST",
+  "keywords": [
+    "s-expression",
+    "lisp",
+    "scheme",
+    "parser"
+  ],
+  "author": "Jason Barr <jason@jasonsbarr.com>",
+  "homepage": "https://github.com/jasonsbarr/educational#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonsbarr/educational.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/jasonsbarr/educational/issues"
+  }
+}
