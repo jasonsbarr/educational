@@ -249,7 +249,7 @@ class DB {
       return fail(`Property ${table} does not exist in JSON DB`);
     }
 
-    // use array as queue (treat as immutable)
+    // use array as queue
     this.query.insertInto = this.query.insertInto
       ? prepend(table, this.query.insertInto)
       : [table];
@@ -266,7 +266,7 @@ class DB {
       return fail("Must select a table to insert into");
     }
 
-    const toInsertInto = last(this.query.insertInto);
+    const toInsertInto = this.query.insertInto.pop();
     const table = [...this.db[toInsertInto]];
     const id = uuid.v4();
 
