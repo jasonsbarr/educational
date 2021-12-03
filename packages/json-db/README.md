@@ -15,11 +15,13 @@ In file.json:
 ```js
 {
     "users": [],
-    "companies": []
+    "companies": [],
+    "user_company": []
 }
 ```
 
 ```js
+// entities map a model to its table
 const entities = {
     user: "users",
     company: "companies"
