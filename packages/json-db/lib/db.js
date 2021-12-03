@@ -2,7 +2,7 @@ import { parse, prop } from "@jasonsbarr/basics";
 import { readFileSync } from "@jasonsbarr/io";
 
 class DB {
-  constructor(filePath, { entities } = {}) {
+  constructor(filePath, { entities = {} } = {}) {
     this.db = parse(readFileSync(filePath));
     this.entities = entities;
     this.query = {};
@@ -99,7 +99,7 @@ class DB {
       : this.db[entity];
 
     this.data.forEach((d) => {
-      d[entity] = table.find((e) => e.id === d[entity + id]);
+      d[entity] = table.find((e) => e.id === d[entity + "Id"]);
     });
 
     return this;
@@ -108,7 +108,67 @@ class DB {
   // join table is named `${leftEntity}_${rightEntity}`
   // in all lowercase. Each row is an object with properties
   // ${leftEntity}Id and ${rightEntity}Id.
-  join(leftEntity, rightEntity) {}
+  join(leftEntity, rightEntity) {
+    const joinTable = this.db[`${leftEntity}_${rightEntity}`];
+    const leftTable = this.db[this.entities[leftEntity]];
+    const rightTable = this.db[this.entities[rightEntity]];
+    const data = [];
+
+    for (let row of joinTable) {
+      let left = leftTable.find((l) => row[leftEntity + "Id"] === l.id);
+      let right = rightTable.find((r) => row[rightEntity + "Id"] === r.id);
+
+      left[leftEntity + "Id"] = left.id;
+      right[rightEntity + "Id"] = right.id;
+      delete left.id;
+      delete right.id;
+
+      const joined = Object.assign({}, left, right);
+
+      data.push(joined);
+    }
+
+    this.data = data;
+
+    return this;
+  }
+
+  skip(num) {
+    this.data = this.data.slice(num + 1);
+
+    return this;
+  }
+
+  take(num) {
+    this.data = this.data.slice(0, num);
+
+    return this;
+  }
+
+  orderBy(field, desc = false) {
+    this.data = this.data.sort((a, b) => {
+      if (typeof a[field] === "string") {
+        return a[field].localeCompare(b[field]);
+      }
+      return a[field] - b[field];
+    });
+
+    if (desc) {
+      this.data = this.data.reverse();
+    }
+
+    return this;
+  }
+
+  sortBy(func, desc = false) {
+    this.data = this.data.sort(func);
+
+    if (desc) {
+      this.data = this.data.reverse();
+    }
+
+    return this;
+  }
 
   get() {
     const data = this.data;
