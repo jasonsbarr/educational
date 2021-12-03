@@ -8,6 +8,26 @@ Simple JSON file-based database with a fluent query API.
 import { Db } from "@jasonsbarr/json-db";
 ```
 
+### Creating a database
+
+In file.json:
+
+```js
+{
+    "users": [],
+    "companies": []
+}
+```
+
+```js
+const entities = {
+    user: "users",
+    company: "companies"
+}
+
+const db = Db("path/to/file.json", { entities });
+```
+
 ### Fetching records
 
 ```js
