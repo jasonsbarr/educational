@@ -95,6 +95,7 @@ class DB {
   // include is understood to be the name of another table
   // whose relationship with the selected table is indicated
   // by the field on the selected table named `${entity}Id`
+  // this method is for entities with a one-to-one relationship
   include(entity) {
     const table = this.entities
       ? this.db[this.entities[entity]]
@@ -107,6 +108,35 @@ class DB {
     } else {
       this.data[entity] = table.find((i) => i.id === this.data[entity + "Id"]);
     }
+
+    return this;
+  }
+
+  includeMany(entity) {
+    const tableName = this.entities ? this.entities[entity] : entity;
+    const table = this.entities
+      ? prop(this.entities[entity], this.db)
+      : prop(entity, this.db);
+
+    if (!table) {
+      return fail(`No data returned for table ${table}`);
+    }
+
+    const data = [...this.data];
+
+    if (Array.isArray(data)) {
+      data.forEach((d) => {
+        const includes = table.filter(
+          (t) => t.id === prop(entity + "Id", data)
+        );
+        d[tableName] = includes;
+      });
+    } else {
+      const includes = table.filter((t) => t.id === prop(entity + "Id", data));
+      data[tableName] = includes;
+    }
+
+    this.data = data;
 
     return this;
   }
