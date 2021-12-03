@@ -198,6 +198,12 @@ class DB {
     return data;
   }
 
+  // use when you have a single data point selected,
+  // i.e. after using this.find()
+  getField(field) {
+    return prop(field, this.data);
+  }
+
   into(table) {
     const data = prop(table, this.db);
 
