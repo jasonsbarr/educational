@@ -1,5 +1,13 @@
 import uuid from "uuid";
-import { fail, jsonify, parse, prepend, prop, last } from "@jasonsbarr/basics";
+import {
+  fail,
+  jsonify,
+  parse,
+  prepend,
+  prop,
+  last,
+  reject,
+} from "@jasonsbarr/basics";
 import { readFileSync, writeFileSync } from "@jasonsbarr/io";
 
 class DB {
@@ -229,7 +237,7 @@ class DB {
   }
 
   // use when you have a single data point selected,
-  // i.e. after using this.find()
+  // i.e. after using this#find
   getField(field) {
     return prop(field, this.data);
   }
@@ -278,10 +286,12 @@ class DB {
       return fail("Error on writing DB to file: " + ex.message);
     }
 
+    const rows = this.query.rows;
+
     this.query = {};
     this.data = null;
 
-    return this.query.rows;
+    return rows;
   }
 
   update(id, table, data) {
@@ -345,6 +355,31 @@ class DB {
     this.data = updated;
     this.db[this.query.table] = updated;
     this.query.rows = updated.length;
+
+    return this;
+  }
+
+  delete(id, table) {
+    if (!id) {
+      return fail("Must have id for entity to delete");
+    }
+
+    if (!table) {
+      return fail("Must select a table to delete a record from");
+    }
+
+    this.query.table = table;
+
+    const data = prop(table, this.db);
+
+    if (!data) {
+      return fail(`No data returned for table ${table}`);
+    }
+
+    const deleted = reject((i) => i.id === id, data);
+
+    this.db[table] = deleted;
+    this.query.rows = this.query.rows ? this.query.rows++ : 1;
 
     return this;
   }
