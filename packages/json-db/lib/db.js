@@ -279,12 +279,6 @@ class DB {
     return this;
   }
 
-  updateTable(table) {
-    this.query.table = table;
-
-    return this;
-  }
-
   updateWhere(field, op, value) {
     if (this.query.table) {
       return fail("Must choose a table before updating with where clause");
