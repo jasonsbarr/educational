@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@jasonsbarr/basics": "^0.1.5",
-    "@jasonsbarr/io": "^0.1.5"
+    "@jasonsbarr/io": "^0.1.5",
+    "uuid": "^8.3.2"
   }
 }

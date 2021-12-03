@@ -186,4 +186,4 @@ class DB {
   }
 }
 
-export const Db = (filePath) => new DB(filePath);
+export const Db = (filePath, config) => new DB(filePath, config);
