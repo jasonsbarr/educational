@@ -2,7 +2,7 @@ import { parse, prop } from "@jasonsbarr/basics";
 import { readFileSync } from "@jasonsbarr/io";
 
 class DB {
-  constructor(filePath, { entities = {} } = {}) {
+  constructor(filePath, { entities = null } = {}) {
     this.db = parse(readFileSync(filePath));
     this.entities = entities;
     this.query = {};
@@ -114,8 +114,12 @@ class DB {
   // ${leftEntity}Id and ${rightEntity}Id.
   join(leftEntity, rightEntity) {
     const joinTable = this.db[`${leftEntity}_${rightEntity}`];
-    const leftTable = this.db[this.entities[leftEntity]];
-    const rightTable = this.db[this.entities[rightEntity]];
+    const leftTable = this[entities]
+      ? this.db[this.entities[leftEntity]]
+      : this.db[leftEntity];
+    const rightTable = this[entities]
+      ? this.db[this.entities[rightEntity]]
+      : this.db[rightEntity];
     const data = [];
 
     for (let row of joinTable) {
