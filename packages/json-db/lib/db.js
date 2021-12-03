@@ -230,6 +230,8 @@ class DB {
     table.push({ id, ...data });
     this.db[toInsertInto] = table;
 
+    this.query.rows = this.query.rows ? this.query.rows++ : 1;
+
     return this;
   }
 
@@ -240,7 +242,10 @@ class DB {
       return fail("Error on writing DB to file: " + ex.message);
     }
 
-    return this;
+    this.query = {};
+    this.data = null;
+
+    return this.query.rows;
   }
 
   update(id, table, data) {
@@ -269,6 +274,47 @@ class DB {
 
     tableData[i] = updated;
     this.db[table] = tableData;
+    this.query.rows = this.query.rows ? this.query.rows++ : 1;
+
+    return this;
+  }
+
+  updateTable(table) {
+    this.query.table = table;
+
+    return this;
+  }
+
+  updateWhere(field, op, value) {
+    if (this.query.table) {
+      return fail("Must choose a table before updating with where clause");
+    }
+    const table = prop(this.query.table, this.db);
+
+    if (!table) {
+      return fail(`Data not returned for table ${table}`);
+    }
+
+    this.data = this.filterWhere(field, op, value, table);
+
+    return this;
+  }
+
+  // must call after updateWhere
+  set(data) {
+    if (!this.data) {
+      return fail("Must select rows before setting updated data");
+    }
+
+    if (!data) {
+      return fail("Must have data to update records");
+    }
+
+    let updated = this.data.map((d) => ({ ...d, ...data }));
+
+    this.data = updated;
+    this.db[this.query.table] = updated;
+    this.query.rows = updated.length;
 
     return this;
   }
