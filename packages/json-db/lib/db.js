@@ -1,4 +1,5 @@
-import { parse, prop, last } from "@jasonsbarr/basics";
+import uuid from "uuid";
+import { fail, parse, prepend, prop, last } from "@jasonsbarr/basics";
 import { readFileSync } from "@jasonsbarr/io";
 
 class DB {
@@ -20,7 +21,7 @@ class DB {
     const data = prop(table, this.db);
 
     if (!data) {
-      throw new Error(`Property ${table} does not exist in JSON DB`);
+      return fail(`Property ${table} does not exist in JSON DB`);
     }
 
     this.query.table = table;
@@ -64,7 +65,7 @@ class DB {
             return Boolean(d[field].find((v) => v === value));
           }
         default:
-          throw new Error(`Operator ${op} is not a valid query operator`);
+          return fail(`Operator ${op} is not a valid query operator`);
       }
     });
   }
@@ -120,7 +121,7 @@ class DB {
     const rightTable = this[entities]
       ? this.db[this.entities[rightEntity]]
       : this.db[rightEntity];
-    const data = [];
+    let data = [];
 
     for (let row of joinTable) {
       let left = leftTable.find((l) => row[leftEntity + "Id"] === l.id);
@@ -180,6 +181,13 @@ class DB {
 
   newest(table) {
     this.data = last(this.db[table]);
+
+    return this;
+  }
+
+  // get id of the object set as newest
+  newestId(table) {
+    return last(this.db[table]).id;
   }
 
   get() {
@@ -193,10 +201,33 @@ class DB {
     const data = prop(table, this.db);
 
     if (!data) {
-      throw new Error(`Property ${table} does not exist in JSON DB`);
+      return fail(`Property ${table} does not exist in JSON DB`);
     }
 
-    this.query.table = table;
+    // use array as queue (treat as immutable)
+    this.query.insertInto = this.query.insertInto
+      ? prepend(table, this.query.insertInto)
+      : [table];
+
+    return this;
+  }
+
+  insert(data) {
+    if (!data) {
+      return fail("Must have data to insert");
+    }
+
+    if (!this.query.insertInto || !this?.query?.insertInto?.length) {
+      return fail("Must select a table to insert into");
+    }
+
+    const toInsertInto = last(this.query.insertInto);
+    const table = [...this.db[toInsertInto]];
+    const id = uuid.v4();
+
+    this.query.insertInto = this.query.insertInto.slice(0, -1);
+    table.push({ id, ...data });
+    this.db[toInsertInto] = table;
 
     return this;
   }
