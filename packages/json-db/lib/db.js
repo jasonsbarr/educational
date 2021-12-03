@@ -84,19 +84,19 @@ class DB {
   }
 
   andWhere(field, op, value) {
-    this.data = this.filterWhere(field, op, value);
+    this.data = this.filterWhere(field, op, value, this.data);
 
     return this;
   }
 
   // include is understood to be the name of another table
   // whose relationship with the selected table is indicated
-  // by the field on the selected table named `${otherTable}Id`
-  include(entityTable) {
+  // by the field on the selected table named `${entity}Id`
+  include(entity, entityTable) {
     const table = this.db[entityTable];
 
     this.data.forEach((d) => {
-      d[entityTable] = table.find((e) => e.id === d[entityTable + id]);
+      d[entity] = table.find((e) => e.id === d[entity + id]);
     });
 
     return this;
