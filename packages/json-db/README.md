@@ -40,6 +40,9 @@ const users = from("users")
 
 ### Inserting records
 
+Unique IDs are generated automatically on insertion. IDs are UUID v4.
+
+
 ```js
 const newCompany1 = {
     name: "Acme Inc.",
@@ -63,5 +66,13 @@ const rows = into("companies")
 const rows = from("companies")
     .updateWhere("founded", "<", 1970)
     .set({ old: true })
+    .write();
+```
+
+### Deleting records
+
+```js
+const rows = from("users")
+    .delete("0803d10b-6f50-4e40-b9e7-e107466c65ac")
     .write();
 ```
