@@ -35,7 +35,7 @@ class DB {
   }
 
   find(field, value) {
-    this.data = this.query.data.find((d) => prop(field, d) === value);
+    this.data = this.data.find((d) => prop(field, d) === value);
   }
 
   // private
@@ -176,6 +176,10 @@ class DB {
     }
 
     return this;
+  }
+
+  newest(table) {
+    this.data = last(this.db[table]);
   }
 
   get() {
