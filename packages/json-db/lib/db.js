@@ -294,37 +294,28 @@ class DB {
     return rows;
   }
 
-  update(id, table, data) {
+  // must use this#from first to select a table
+  update(id) {
     if (!id) {
       return fail("Must have an id to update a single record");
     }
 
-    if (!data) {
-      return fail("Must have data to update record with");
-    }
-
-    let tableData = [...this.db[table]];
+    let tableData = [...this.db[this.query.table]];
 
     if (!tableData) {
-      return fail(`No data returned for table ${table}`);
+      return fail(`No data returned for table ${this.query.table}`);
     }
 
-    const i = tableData.findIndex((d) => d.id === id);
+    this.data = tableData.find((d) => d.id === id);
 
-    if (i < 0) {
+    if (!this.data) {
       return fail(`Record not found to update with id of ${id}`);
     }
-
-    const record = tableData[i];
-    const updated = { ...record, ...data };
-
-    tableData[i] = updated;
-    this.db[table] = tableData;
-    this.query.rows = this.query.rows ? this.query.rows++ : 1;
 
     return this;
   }
 
+  // must use this#from first to select a table
   updateWhere(field, op, value) {
     if (this.query.table) {
       return fail("Must choose a table before updating with where clause");
@@ -340,46 +331,82 @@ class DB {
     return this;
   }
 
-  // must call after updateWhere
+  // must call after this#update or this#updateWhere
   set(data) {
     if (!this.data) {
-      return fail("Must select rows before setting updated data");
+      return fail("Must select record(s) before setting updated data");
     }
 
     if (!data) {
       return fail("Must have data to update records");
     }
 
-    let updated = this.data.map((d) => ({ ...d, ...data }));
+    if (Array.isArray(this.data)) {
+      const updated = this.data.map((d) => ({ ...d, ...data }));
 
-    this.data = updated;
-    this.db[this.query.table] = updated;
-    this.query.rows = updated.length;
+      this.data = updated;
+      this.db[this.query.table] = updated;
+      this.query.rows = this.query.rows
+        ? this.query.rows + updated.length
+        : updated.length;
+    } else {
+      const table = prop(this.query.table, this.db);
+
+      if (!table) {
+        return fail(`No data returned for table ${this.query.table}`);
+      }
+
+      const updated = { ...this.data, ...data };
+      let updateTable = [...table];
+      let i = updateTable.findIndex((el) => el.id === updated.id);
+
+      // should never happen because this.data should already be from table
+      if (i < 0) {
+        return fail(
+          `Record not found for id ${updated.id} in table ${this.query.table}`
+        );
+      }
+
+      updateTable[i] = updated;
+      this.db[this.query.table] = updateTable;
+      this.query.rows = this.query.rows ? this.query.rows++ : 1;
+    }
 
     return this;
   }
 
-  delete(id, table) {
+  // must use this#from to select a table first
+  delete(id) {
     if (!id) {
       return fail("Must have id for entity to delete");
     }
 
-    if (!table) {
-      return fail("Must select a table to delete a record from");
-    }
-
-    this.query.table = table;
-
-    const data = prop(table, this.db);
+    const data = prop(this.query.table, this.db);
 
     if (!data) {
-      return fail(`No data returned for table ${table}`);
+      return fail(`No data returned for table ${this.query.table}`);
     }
 
     const deleted = reject((i) => i.id === id, data);
 
     this.db[table] = deleted;
     this.query.rows = this.query.rows ? this.query.rows++ : 1;
+
+    return this;
+  }
+
+  // must use this#from to select a table first
+  deleteWhere(field, op, value) {
+    const data = prop(this.query.table, this.db);
+
+    if (!data) {
+      return fail(`No data returned for table ${this.query.table}`);
+    }
+
+    const toDelete = this.filterWhere(field, op, value, data);
+    const deleted = reject((i) => toDelete.includes(i.id), data);
+
+    this.db[this.query.table] = deleted;
 
     return this;
   }
