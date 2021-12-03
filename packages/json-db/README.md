@@ -14,6 +14,7 @@ import { Db } from "@jasonsbarr/json-db";
 const users = from("users")
     .select()
     .where("joinDate", ">", new Date("January 1, 2015").getTime())
+    .include("organization")
     .get();
 ```
 
