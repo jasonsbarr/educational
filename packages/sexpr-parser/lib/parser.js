@@ -123,7 +123,7 @@ const readAtom = (reader) => {
     return parseInt(token, 10);
   }
 
-  if (token.match(/^[+-]?[1-9][0-9]*\.[0-9]*/)) {
+  if (token.match(/^[+-]?[1-9][0-9]*\.[0-9]*$/)) {
     return parseFloat(token);
   }
 
