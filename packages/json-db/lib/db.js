@@ -2,8 +2,9 @@ import { parse, prop } from "@jasonsbarr/basics";
 import { readFileSync } from "@jasonsbarr/io";
 
 class DB {
-  constructor(filePath) {
+  constructor(filePath, { entities } = {}) {
     this.db = parse(readFileSync(filePath));
+    this.entities = entities;
     this.query = {};
     this.data = null;
 
@@ -92,8 +93,10 @@ class DB {
   // include is understood to be the name of another table
   // whose relationship with the selected table is indicated
   // by the field on the selected table named `${entity}Id`
-  include(entity, entityTable) {
-    const table = this.db[entityTable];
+  include(entity) {
+    const table = this.entities
+      ? this.db[this.entities[entity]]
+      : this.db[entity];
 
     this.data.forEach((d) => {
       d[entity] = table.find((e) => e.id === d[entity + id]);
@@ -101,6 +104,11 @@ class DB {
 
     return this;
   }
+
+  // join table is named `${leftEntity}_${rightEntity}`
+  // in all lowercase. Each row is an object with properties
+  // ${leftEntity}Id and ${rightEntity}Id.
+  join(leftEntity, rightEntity) {}
 
   get() {
     const data = this.data;
@@ -110,4 +118,4 @@ class DB {
   }
 }
 
-export const db = (filePath) => new DB(filePath);
+export const Db = (filePath) => new DB(filePath);

@@ -1,3 +1,3 @@
-import { db } from "./lib/db.js";
+import { Db } from "./lib/db.js";
 
-export { db };
+export { Db };
