@@ -1,4 +1,4 @@
-import { parse, prop } from "@jasonsbarr/basics";
+import { parse, prop, last } from "@jasonsbarr/basics";
 import { readFileSync } from "@jasonsbarr/io";
 
 class DB {
@@ -181,7 +181,7 @@ class DB {
   get() {
     const data = this.data;
     this.query = {};
-    this.data = {};
+    this.data = null;
     return data;
   }
 }
