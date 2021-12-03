@@ -98,9 +98,13 @@ class DB {
       ? this.db[this.entities[entity]]
       : this.db[entity];
 
-    this.data.forEach((d) => {
-      d[entity] = table.find((e) => e.id === d[entity + "Id"]);
-    });
+    if (Array.isArray(this.data)) {
+      this.data.forEach((d) => {
+        d[entity] = table.find((i) => i.id === d[entity + "Id"]);
+      });
+    } else {
+      this.data[entity] = table.find((i) => i.id === this.data[entity + "Id"]);
+    }
 
     return this;
   }
