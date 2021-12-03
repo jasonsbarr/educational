@@ -1,11 +1,14 @@
 # `@jasonsbarr/json-db`
 
-> TODO: description
+Simple JSON file-based database with a fluent query API.
 
 ## Usage
 
-```
-const jsonDb = require('@jasonsbarr/json-db');
+```js
+import { Db } from "@jasonsbarr/json-db";
 
-// TODO: DEMONSTRATE API
+const users = from("users")
+    .select()
+    .where("joinDate", ">", new Date("January 1, 2015").getTime())
+    .get();
 ```
