@@ -234,7 +234,41 @@ class DB {
   }
 
   write() {
-    writeFileSync(this.filePath, jsonify(this.db));
+    try {
+      writeFileSync(this.filePath, jsonify(this.db));
+    } catch (ex) {
+      return fail("Error on writing DB to file: " + ex.message);
+    }
+
+    return this;
+  }
+
+  update(id, table, data) {
+    if (!id) {
+      return fail("Must have an id to update a single record");
+    }
+
+    if (!data) {
+      return fail("Must have data to update record with");
+    }
+
+    let tableData = [...this.db[table]];
+
+    if (!tableData) {
+      return fail(`No data returned for table ${table}`);
+    }
+
+    const i = tableData.findIndex((d) => d.id === id);
+
+    if (i < 0) {
+      return fail(`Record not found to update with id of ${id}`);
+    }
+
+    const record = tableData[i];
+    const updated = { ...record, ...data };
+
+    tableData[i] = updated;
+    this.db[table] = tableData;
 
     return this;
   }
