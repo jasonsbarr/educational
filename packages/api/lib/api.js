@@ -20,6 +20,12 @@ class ApiClass {
     return this._port;
   }
 
+  all(route, handler) {
+    this.app.all(route, handler);
+
+    return this;
+  }
+
   delete(route, handler) {
     this.app.delete(route, handler);
 

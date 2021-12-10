@@ -9,6 +9,12 @@ class RouterClass {
     return this._routes;
   }
 
+  all(route, handler) {
+    this.routes.all(route, handler);
+
+    return this;
+  }
+
   delete(route, handler) {
     this.routes.delete(route, handler);
 
