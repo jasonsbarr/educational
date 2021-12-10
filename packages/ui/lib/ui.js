@@ -48,6 +48,12 @@ export const blockquote = (props = {}, ...children) =>
 export const br = (props = {}, ...children) =>
   element("br", props, ...children);
 
+export const button = (props = {}, ...children) =>
+  element("button", props, ...children);
+
+export const caption = (props = {}, ...children) =>
+  element("caption", props, ...children);
+
 export const canvas = (props = {}, ...children) =>
   element("canvas", props, ...children);
 
@@ -57,8 +63,17 @@ export const cite = (props = {}, ...children) =>
 export const code = (props = {}, ...children) =>
   element("code", props, ...children);
 
+export const col = (props = {}, ...children) =>
+  element("col", props, ...children);
+
+export const colgroup = (props = {}, ...children) =>
+  element("colgroup", props, ...children);
+
 export const data = (props = {}, ...children) =>
   element("data", props, ...children);
+
+export const datalist = (props = {}, ...children) =>
+  element("datalist", props, ...children);
 
 export const dd = (props = {}, ...children) =>
   element("dd", props, ...children);
@@ -66,8 +81,14 @@ export const dd = (props = {}, ...children) =>
 export const del = (props = {}, ...children) =>
   element("del", props, ...children);
 
+export const details = (props = {}, ...children) =>
+  element("details", props, ...children);
+
 export const dfn = (props = {}, ...children) =>
   element("dfn", props, ...children);
+
+export const dialog = (props = {}, ...children) =>
+  element("dialog", props, ...children);
 
 export const div = (props = {}, ...children) =>
   element("div", props, ...children);
@@ -84,6 +105,9 @@ export const em = (props = {}, ...children) =>
 export const embed = (props = {}, ...children) =>
   element("embed", props, ...children);
 
+export const fieldset = (props = {}, ...children) =>
+  element("fieldset", props, ...children);
+
 export const figcaption = (props = {}, ...children) =>
   element("figcaption", props, ...children);
 
@@ -92,6 +116,9 @@ export const figure = (props = {}, ...children) =>
 
 export const footer = (props = {}, ...children) =>
   element("footer", props, ...children);
+
+export const form = (props = {}, ...children) =>
+  element("form", props, ...children);
 
 export const h1 = (props = {}, ...children) =>
   element("h1", props, ...children);
@@ -125,11 +152,20 @@ export const iframe = (props = {}, ...children) =>
 export const img = (props = {}, ...children) =>
   element("img", props, ...children);
 
+export const input = (props = {}, ...children) =>
+  element("input", props, ...children);
+
 export const ins = (props = {}, ...children) =>
   element("ins", props, ...children);
 
 export const kbd = (props = {}, ...children) =>
   element("kbd", props, ...children);
+
+export const label = (props = {}, ...children) =>
+  element("label", props, ...children);
+
+export const legend = (props = {}, ...children) =>
+  element("legend", props, ...children);
 
 export const li = (props = {}, ...children) =>
   element("li", props, ...children);
@@ -146,6 +182,12 @@ export const mark = (props = {}, ...children) =>
 export const math = (props = {}, ...children) =>
   element("math", props, ...children);
 
+export const menu = (props = {}, ...children) =>
+  element("menu", props, ...children);
+
+export const meter = (props = {}, ...children) =>
+  element("meter", props, ...children);
+
 export const nav = (props = {}, ...children) =>
   element("nav", props, ...children);
 
@@ -154,6 +196,15 @@ export const object = (props = {}, ...children) =>
 
 export const ol = (props = {}, ...children) =>
   element("ol", props, ...children);
+
+export const optgroup = (props = {}, ...children) =>
+  element("optgroup", props, ...children);
+
+export const option = (props = {}, ...children) =>
+  element("option", props, ...children);
+
+export const output = (props = {}, ...children) =>
+  element("output", props, ...children);
 
 export const p = (props = {}, ...children) => element("p", props, ...children);
 
@@ -168,6 +219,9 @@ export const portal = (props = {}, ...children) =>
 
 export const pre = (props = {}, ...children) =>
   element("pre", props, ...children);
+
+export const progress = (props = {}, ...children) =>
+  element("progress", props, ...children);
 
 export const q = (props = {}, ...children) => element("q", props, ...children);
 
@@ -188,6 +242,9 @@ export const samp = (props = {}, ...children) =>
 export const section = (props = {}, ...children) =>
   element("section", props, ...children);
 
+export const select = (props = {}, ...children) =>
+  element("select", props, ...children);
+
 export const small = (props = {}, ...children) =>
   element("small", props, ...children);
 
@@ -203,14 +260,41 @@ export const strong = (props = {}, ...children) =>
 export const sub = (props = {}, ...children) =>
   element("sub", props, ...children);
 
+export const summary = (props = {}, ...children) =>
+  element("summary", props, ...children);
+
 export const sup = (props = {}, ...children) =>
   element("sup", props, ...children);
 
 export const svg = (props = {}, ...children) =>
   element("svg", props, ...children);
 
+export const table = (props = {}, ...children) =>
+  element("table", props, ...children);
+
+export const tbody = (props = {}, ...children) =>
+  element("tbody", props, ...children);
+
+export const td = (props = {}, ...children) =>
+  element("td", props, ...children);
+
+export const textarea = (props = {}, ...children) =>
+  element("textarea", props, ...children);
+
+export const tfoot = (props = {}, ...children) =>
+  element("tfoot", props, ...children);
+
+export const th = (props = {}, ...children) =>
+  element("th", props, ...children);
+
+export const thead = (props = {}, ...children) =>
+  element("thead", props, ...children);
+
 export const time = (props = {}, ...children) =>
   element("time", props, ...children);
+
+export const tr = (props = {}, ...children) =>
+  element("tr", props, ...children);
 
 export const track = (props = {}, ...children) =>
   element("track", props, ...children);
