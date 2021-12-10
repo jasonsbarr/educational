@@ -1,6 +1,7 @@
 import { append } from "./lib/append.js";
 import { array } from "./lib/array.js";
 import { assert } from "./lib/assert.js";
+import { assertEquals } from "./lib/assertEqual.js";
 import { call } from "./lib/call.js";
 import { compose } from "./lib/compose.js";
 import { concat } from "./lib/concat.js";
@@ -40,6 +41,7 @@ export {
   append,
   array,
   assert,
+  assertEquals,
   call,
   compose,
   concat,
