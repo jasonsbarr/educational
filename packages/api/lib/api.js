@@ -7,9 +7,9 @@ class ApiClass {
     this._app = express();
     this.port = port;
 
-    this.app.use(cors());
-    this.app.use(bodyParser.urlencoded({ extended: true }));
-    this.app.use(bodyParser.json());
+    this._app.use(cors());
+    this._app.use(bodyParser.urlencoded({ extended: true }));
+    this._app.use(bodyParser.json());
   }
 
   get app() {
