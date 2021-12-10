@@ -1,6 +1,6 @@
 {
   "name": "@jasonsbarr/sexpr-parser",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "A simple parser for S-expressions that produces a minimal, array-based AST",
   "keywords": [
     "s-expression",

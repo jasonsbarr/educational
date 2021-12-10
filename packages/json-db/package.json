@@ -1,6 +1,6 @@
 {
   "name": "@jasonsbarr/json-db",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "Simple JSON DB class for educational purposes",
   "keywords": [
     "json",
@@ -26,8 +26,8 @@
     "url": "https://github.com/jasonsbarr/educational/issues"
   },
   "dependencies": {
-    "@jasonsbarr/basics": "^0.1.5",
-    "@jasonsbarr/io": "^0.1.5",
+    "@jasonsbarr/basics": "^0.2.0",
+    "@jasonsbarr/io": "^0.2.0",
     "uuid": "^8.3.2"
   }
 }

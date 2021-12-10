@@ -1,6 +1,6 @@
 {
   "name": "@jasonsbarr/ui",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "A simplified UI library built on top of React",
   "keywords": [
     "react",

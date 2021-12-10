@@ -1,6 +1,6 @@
 {
   "name": "@jasonsbarr/api",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "A simple API builder based on Express.js",
   "keywords": [
     "api",
