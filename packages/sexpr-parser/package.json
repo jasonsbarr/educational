@@ -1,13 +1,14 @@
 {
-  "name": "@jasonsbarr/json-db",
+  "name": "@jasonsbarr/sexpr-parser",
   "version": "0.1.5",
-  "description": "Simple JSON DB class for educational purposes",
+  "description": "A simple parser for S-expressions that produces a minimal, array-based AST",
   "keywords": [
-    "json",
-    "db",
-    "educational"
+    "s-expression",
+    "lisp",
+    "scheme",
+    "parser"
   ],
-  "author": "Jason Barr <jason.barr@metronetinc.com>",
+  "author": "Jason Barr <jason@jasonsbarr.com>",
   "homepage": "https://github.com/jasonsbarr/educational#readme",
   "license": "MIT",
   "main": "index.js",
@@ -24,10 +25,5 @@
   },
   "bugs": {
     "url": "https://github.com/jasonsbarr/educational/issues"
-  },
-  "dependencies": {
-    "@jasonsbarr/basics": "^0.1.5",
-    "@jasonsbarr/io": "^0.1.5",
-    "uuid": "^8.3.2"
   }
 }

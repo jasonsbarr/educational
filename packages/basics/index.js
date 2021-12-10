@@ -31,6 +31,7 @@ import { promise } from "./lib/promise.js";
 import { promisify } from "./lib/promisify.js";
 import { prop } from "./lib/prop.js";
 import { reduce } from "./lib/reduce.js";
+import { reject } from "./lib/reject.js";
 import { set } from "./lib/set.js";
 import { sleep } from "./lib/sleep.js";
 import { snd } from "./lib/snd.js";
@@ -72,6 +73,7 @@ export {
   promisify,
   prop,
   reduce,
+  reject,
   set,
   sleep,
   snd,
