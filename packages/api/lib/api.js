@@ -3,9 +3,9 @@ import bodyParser from "body-parser";
 import cors from "cors";
 
 class ApiClass {
-  constructor(port) {
+  constructor(port = 5000) {
     this._app = express();
-    this.port = port ?? 5000;
+    this.port = port;
 
     this.app.use(cors());
     this.app.use(bodyParser.urlencoded({ extended: true }));
