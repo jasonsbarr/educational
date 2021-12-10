@@ -1,0 +1,31 @@
+{
+  "name": "@jasonsbarr/api",
+  "version": "0.1.5",
+  "description": "A simple API builder based on Express.js",
+  "keywords": [
+    "api",
+    "rest-api",
+    "express"
+  ],
+  "type": "module",
+  "author": "Jason Barr <jason.barr@metronetinc.com>",
+  "homepage": "https://github.com/jasonsbarr/educational#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonsbarr/educational.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/jasonsbarr/educational/issues"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
