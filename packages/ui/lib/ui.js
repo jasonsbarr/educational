@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { css } from "@emotion/css";
 
 export const render = (node, mount) => ReactDOM.render(node, mount);
 
@@ -13,6 +14,8 @@ export const useEffect = (callback, deps = undefined) =>
   React.useEffect(callback, deps);
 
 export const useState = (init) => React.useState(init);
+
+export const css;
 
 export const a = (props = {}, ...children) => element("a", props, ...children);
 
