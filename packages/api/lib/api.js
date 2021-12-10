@@ -4,12 +4,16 @@ import cors from "cors";
 
 class ApiClass {
   constructor(port) {
-    this.app = express();
+    this._app = express();
     this.port = port ?? 5000;
 
     this.app.use(cors());
     this.app.use(bodyParser.urlencoded({ extended: true }));
     this.app.use(bodyParser.json());
+  }
+
+  get app() {
+    return this._app;
   }
 
   delete(route, handler) {
