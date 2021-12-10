@@ -51,6 +51,12 @@ class ApiClass {
 
     return this;
   }
+
+  useRoutes(base, router) {
+    this.app.use(base, router.routes);
+
+    return this;
+  }
 }
 
 export const Api = (port) => new ApiClass(port);
