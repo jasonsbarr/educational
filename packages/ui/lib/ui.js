@@ -22,11 +22,17 @@ export const abbr = (props = {}, ...children) =>
 export const address = (props = {}, ...children) =>
   element("address", props, ...children);
 
+export const area = (props = {}, ...children) =>
+  element("area", props, ...children);
+
 export const article = (props = {}, ...children) =>
   element("article", props, ...children);
 
 export const aside = (props = {}, ...children) =>
   element("aside", props, ...children);
+
+export const audio = (props = {}, ...children) =>
+  element("audio", props, ...children);
 
 export const b = (props = {}, ...children) => element("b", props, ...children);
 
@@ -42,6 +48,9 @@ export const blockquote = (props = {}, ...children) =>
 export const br = (props = {}, ...children) =>
   element("br", props, ...children);
 
+export const canvas = (props = {}, ...children) =>
+  element("canvas", props, ...children);
+
 export const cite = (props = {}, ...children) =>
   element("cite", props, ...children);
 
@@ -53,6 +62,9 @@ export const data = (props = {}, ...children) =>
 
 export const dd = (props = {}, ...children) =>
   element("dd", props, ...children);
+
+export const del = (props = {}, ...children) =>
+  element("del", props, ...children);
 
 export const dfn = (props = {}, ...children) =>
   element("dfn", props, ...children);
@@ -68,6 +80,9 @@ export const dt = (props = {}, ...children) =>
 
 export const em = (props = {}, ...children) =>
   element("em", props, ...children);
+
+export const embed = (props = {}, ...children) =>
+  element("embed", props, ...children);
 
 export const figcaption = (props = {}, ...children) =>
   element("figcaption", props, ...children);
@@ -104,6 +119,15 @@ export const hr = (props = {}, ...children) =>
 
 export const i = (props = {}, ...children) => element("i", props, ...children);
 
+export const iframe = (props = {}, ...children) =>
+  element("iframe", props, ...children);
+
+export const img = (props = {}, ...children) =>
+  element("img", props, ...children);
+
+export const ins = (props = {}, ...children) =>
+  element("ins", props, ...children);
+
 export const kbd = (props = {}, ...children) =>
   element("kbd", props, ...children);
 
@@ -113,16 +137,34 @@ export const li = (props = {}, ...children) =>
 export const main = (props = {}, ...children) =>
   element("main", props, ...children);
 
+export const map = (props = {}, ...children) =>
+  element("map", props, ...children);
+
 export const mark = (props = {}, ...children) =>
   element("mark", props, ...children);
 
+export const math = (props = {}, ...children) =>
+  element("math", props, ...children);
+
 export const nav = (props = {}, ...children) =>
   element("nav", props, ...children);
+
+export const object = (props = {}, ...children) =>
+  element("object", props, ...children);
 
 export const ol = (props = {}, ...children) =>
   element("ol", props, ...children);
 
 export const p = (props = {}, ...children) => element("p", props, ...children);
+
+export const param = (props = {}, ...children) =>
+  element("param", props, ...children);
+
+export const picture = (props = {}, ...children) =>
+  element("picture", props, ...children);
+
+export const portal = (props = {}, ...children) =>
+  element("portal", props, ...children);
 
 export const pre = (props = {}, ...children) =>
   element("pre", props, ...children);
@@ -149,6 +191,9 @@ export const section = (props = {}, ...children) =>
 export const small = (props = {}, ...children) =>
   element("small", props, ...children);
 
+export const source = (props = {}, ...children) =>
+  element("source", props, ...children);
+
 export const span = (props = {}, ...children) =>
   element("span", props, ...children);
 
@@ -161,13 +206,22 @@ export const sub = (props = {}, ...children) =>
 export const sup = (props = {}, ...children) =>
   element("sup", props, ...children);
 
+export const svg = (props = {}, ...children) =>
+  element("svg", props, ...children);
+
 export const time = (props = {}, ...children) =>
   element("time", props, ...children);
+
+export const track = (props = {}, ...children) =>
+  element("track", props, ...children);
 
 export const u = (props = {}, ...children) => element("u", props, ...children);
 
 export const ul = (props = {}, ...children) =>
   element("ul", props, ...children);
+
+export const video = (props = {}, ...children) =>
+  element("video", props, ...children);
 
 export const wbr = (props = {}, ...children) =>
   element("wbr", props, ...children);
