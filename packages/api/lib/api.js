@@ -52,6 +52,7 @@ class ApiClass {
     return this;
   }
 
+  // router is instance of RouterClass from ./router.js
   useRoutes(base, router) {
     this.app.use(base, router.routes);
 
