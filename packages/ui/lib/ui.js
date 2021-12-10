@@ -15,7 +15,9 @@ export const useEffect = (callback, deps = undefined) =>
 
 export const useState = (init) => React.useState(init);
 
-export const css;
+export const clone = (elem) => React.cloneElement(elem);
+
+export { css };
 
 export const a = (props = {}, ...children) => element("a", props, ...children);
 
